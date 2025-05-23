@@ -572,15 +572,9 @@ const eventsWithVolunteerCount = await Promise.all(events.map(async (event) => {
   return {
     ...event._doc,
     volunteers: volunteerCount,
-    image: event.image ? `http://localhost:5000${event.image}` : null,
+    image: event.image ? http://localhost:5000${event.image} : null,
   };
 }));
-res.json(eventsWithVolunteerCount);
-  } catch (error) {
-    console.error("Error fetching approved events:", error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
 router.get("/:eventId", async (req, res) => {
   try {
     const event = await Event.findById(req.params.eventId);
